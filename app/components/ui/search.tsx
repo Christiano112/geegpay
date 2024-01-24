@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState, CSSProperties, ChangeEvent, memo } from "react";
-import SearchIcon from "/search-icon.svg";
+import { SearchIcon } from "@/app/utils/images";
 
 interface SearchInputType {
     placeholder?: string;
