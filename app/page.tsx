@@ -1,12 +1,12 @@
 "use client";
 
 import Wrapper from "./components/wrapper";
+import Header from "./components/header";
 import Chart from "./components/chart";
-import { chartData, platformData, tableData } from "./utils/data";
 import Card from "./components/card";
 import OrdersTable from "./components/table";
 import Platform from "./components/platform";
-import Header from "./components/header";
+import { cardData, chartData, platformData, tableData } from "./utils/data";
 
 const Dashboard = () => {
     const onSearch = (value: string) => {
@@ -16,17 +16,17 @@ const Dashboard = () => {
     return (
         <Wrapper>
             <Header onSearch={onSearch} />
-            <div className="grid grid-cols-2 md:grid-cols-6 items-center gap-6 p-4">
-                <div className="col-span-2 md:col-span-4">
+            <div className="grid grid-cols-4 md:grid-cols-10 justify-between gap-4 px-2 py-4 h-full w-full">
+                <div className="col-span-4 md:col-span-6">
                     <Chart chartData={chartData} />
                 </div>
-                <div className="col-span-2">
-                    <Card />
+                <div className="col-span-4">
+                    <Card cardData={cardData} />
                 </div>
-                <div className="col-span-2 md:col-span-4">
+                <div className="col-span-4 md:col-span-6">
                     <OrdersTable tableData={tableData} />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-4">
                     <Platform platformData={platformData} />
                 </div>
             </div>

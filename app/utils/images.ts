@@ -18,6 +18,8 @@ import EllipseIcon from "../../public/ellipse.svg";
 import LadyImage from "../../public/lady.png";
 import GirlImage from "../../public/girl.png";
 import Girl2Image from "../../public/girl2.png";
+import GreenTrendingUpImage from "../../public/green-trending-up.png";
+import GreenWavesImage from "../../public/green-waves.png";
 import GuyImage from "../../public/guy.png";
 import Guy2Image from "../../public/guy2.png";
 import ManImage from "../../public/man.png";
@@ -28,6 +30,8 @@ import InfoCircleIcon from "../../public/info-circle.svg";
 import LogoutIcon from "../../public/logout.svg";
 import MoonIcon from "../../public/moon.svg";
 import ProfileIcon from "../../public/profile.svg";
+import RedTrendingDownImage from "../../public/red-trending-down.png";
+import RedWavesImage from "../../public/red-waves.png";
 import SettingsIcon from "../../public/setting.svg";
 import SearchIcon from "../../public/search-icon.svg";
 import ShoppingImage from "../../public/shopping-cart.png";
@@ -56,6 +60,8 @@ export {
     LadyImage,
     GirlImage,
     Girl2Image,
+    GreenTrendingUpImage,
+    GreenWavesImage,
     GuyImage,
     Guy2Image,
     ManImage,
@@ -66,6 +72,8 @@ export {
     LogoutIcon,
     MoonIcon,
     ProfileIcon,
+    RedTrendingDownImage,
+    RedWavesImage,
     SettingsIcon,
     SearchIcon,
     ShoppingImage,

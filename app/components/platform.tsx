@@ -12,7 +12,7 @@ interface PlatformPropTye {
 
 const Platform = ({ platformData }: PlatformPropTye) => {
     return (
-        <article className="bg-white pt-4 pr-4 pb-8 pl-6 rounded-xl h-full w-full max-w-[26rem]">
+        <article className="bg-white pt-4 pr-4 pb-8 pl-6 rounded-xl h-full w-full">
             <Headline text="Top Platform" />
 
             <div className="space-y-4 text-lg mt-6">

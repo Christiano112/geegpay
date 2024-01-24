@@ -14,6 +14,10 @@ import {
     GirlImage,
     Girl2Image,
     LadyImage,
+    ShoppingImage,
+    BoxTickImage,
+    RotateImage,
+    CoinImage,
 } from "../utils/images";
 
 export const linkData = [
@@ -120,6 +124,14 @@ export const tableData: TablePropType["tableData"] = [
         amount: "$80,000",
         status: "Paid",
     },
+    {
+        id: 6,
+        name: "Floyd Miles",
+        imgSrc: Guy2Image,
+        date: "Nov 18, 2023",
+        amount: "$75,000",
+        status: "Refund",
+    },
 ];
 
 export const platformData = [
@@ -150,5 +162,36 @@ export const platformData = [
         percent: 5,
         amount: 700000,
         color: "#34CAA5",
+    },
+];
+
+export const cardData = [
+    {
+        id: 1,
+        imgSrc: BoxTickImage,
+        title: "Total Order",
+        amount: 350,
+        trend: "up",
+    },
+    {
+        id: 2,
+        imgSrc: RotateImage,
+        title: "Total Refund",
+        amount: 270,
+        trend: "down",
+    },
+    {
+        id: 3,
+        imgSrc: ShoppingImage,
+        title: "Average Sales",
+        amount: 1567,
+        trend: "down",
+    },
+    {
+        id: 4,
+        imgSrc: CoinImage,
+        title: "Total Income",
+        amount: "$350.000",
+        trend: "up",
     },
 ];

@@ -1,20 +1,23 @@
 "use client";
 
 import Image from "next/image";
-import { useState, CSSProperties, ChangeEvent, memo } from "react";
+import { useState, ChangeEvent, memo } from "react";
 import { SearchIcon } from "@/app/utils/images";
+import useDebounce from "@/app/utils/debounce";
 
 interface SearchInputType {
-    placeholder?: string;
     onSearch: (searchQuery: string) => void;
-    style?: CSSProperties;
 }
 
-const SearchInput = memo(({ placeholder, onSearch, style }: SearchInputType) => {
+const SearchInput = memo(({ onSearch }: SearchInputType) => {
     const [searchQuery, setSearchQuery] = useState<string>("");
+    const debouncedSearchQuery = useDebounce(searchQuery);
 
+    onSearch(debouncedSearchQuery);
+
+    // I don't need to use this function, because I already use debounce hook
     const handleSearch = () => {
-        onSearch(searchQuery);
+        onSearch(debouncedSearchQuery);
     };
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -22,11 +25,11 @@ const SearchInput = memo(({ placeholder, onSearch, style }: SearchInputType) => 
     };
 
     return (
-        <div className="relative" style={style}>
+        <div className="relative w-full h-full">
             <input
                 type="search"
                 id="search"
-                placeholder={placeholder}
+                placeholder="Search..."
                 value={searchQuery}
                 onChange={handleChange}
                 onKeyUp={(event) => {
@@ -34,12 +37,12 @@ const SearchInput = memo(({ placeholder, onSearch, style }: SearchInputType) => 
                         handleSearch();
                     }
                 }}
-                className="w-full py-2 pl-8 pr-2 text-sm text-tertiary bg-white border border-primary-50 rounded-md focus:ring-1 focus:ring-primary focus:outline-none focus:ring-opacity-50"
+                className="w-full max-w-[21rem] py-2 pl-8 pr-2 text-sm text-dark bg-white border border-light-ash3 rounded-3xl focus:ring-1 focus:ring-primary focus:outline-none focus:ring-opacity-50 placeholder:text-light-ash4"
             />
             <Image
                 src={SearchIcon}
                 alt="search-icon"
-                className="absolute top-1/2 left-2 transform -translate-y-1/2 text-slate-400 cursor-pointer"
+                className="absolute top-1/2 left-2 transform -translate-y-1/2 text-dark-ash2 cursor-pointer"
                 onClick={handleSearch}
             />
         </div>

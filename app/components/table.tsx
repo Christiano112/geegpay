@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { DocumentDownloadIcon } from "../utils/images";
 import type { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { DocumentDownloadIcon } from "../utils/images";
 import Headline from "./ui/headline";
 
 export interface TablePropType {
@@ -19,7 +19,7 @@ const OrdersTable = ({ tableData }: TablePropType) => {
         <section className="bg-white border border-grey4 rounded-xl p-4 h-full w-full grow">
             <Headline text="Last Orders" />
 
-            <div className="mt-6">
+            <div className="mt-6 w-full overflow-x-auto overscroll-x-auto scroll-smooth">
                 <table className=" min-w-full">
                     <thead>
                         <tr className="text-base text-dark-ash4 border-b border-b-grey3">
@@ -43,9 +43,13 @@ const OrdersTable = ({ tableData }: TablePropType) => {
                     <tbody className="divide-y divide-grey3">
                         {tableData.map((item) => (
                             <tr key={item.id} className="text-tertiary">
-                                <td className="px-2 py-3 whitespace-nowrap">
+                                <td className="pl-2 pr-10 md:pr-4 py-3 whitespace-nowrap">
                                     <div className="flex items-center gap-2">
-                                        <Image src={item.imgSrc} alt="User" />
+                                        <Image
+                                            src={item.imgSrc}
+                                            alt={item.name}
+                                            className="w-8 h-8"
+                                        />
                                         <span className="font-medium">{item.name}</span>
                                     </div>
                                 </td>
