@@ -150,14 +150,14 @@ export const platformData = [
         color: "#54C5EB",
     },
     {
-        id: 1,
+        id: 3,
         name: "Artisan Aisle",
         percent: 8,
         amount: 1200000,
         color: "#FFB74A",
     },
     {
-        id: 1,
+        id: 4,
         name: "XStore",
         percent: 5,
         amount: 700000,

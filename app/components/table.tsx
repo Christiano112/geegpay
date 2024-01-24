@@ -43,7 +43,7 @@ const OrdersTable = ({ tableData }: TablePropType) => {
                     <tbody className="divide-y divide-grey3">
                         {tableData.map((item) => (
                             <tr key={item.id} className="text-tertiary">
-                                <td className="pl-2 pr-10 md:pr-4 py-3 whitespace-nowrap">
+                                <td className="px-2 py-3 whitespace-nowrap min-w-[12rem]">
                                     <div className="flex items-center gap-2">
                                         <Image
                                             src={item.imgSrc}

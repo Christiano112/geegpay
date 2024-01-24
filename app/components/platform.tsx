@@ -23,7 +23,7 @@ const Platform = ({ platformData }: PlatformPropTye) => {
                             <div
                                 className="h-2 rounded-lg"
                                 style={{
-                                    width: `${platform.percent * 3}%`,
+                                    width: `${platform.percent * 5}%`,
                                     backgroundColor: platform.color,
                                 }}
                             ></div>

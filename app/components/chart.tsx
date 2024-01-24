@@ -1,6 +1,16 @@
 "use client";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import CustomizedBar from "./ui/customizedBar";
+
+import {
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    ResponsiveContainer,
+    Rectangle,
+} from "recharts";
+import CustomizedToolTip from "./ui/customizedTooltip";
 
 type PropType = {
     chartData: {
@@ -50,7 +60,7 @@ const Chart = ({ chartData }: PropType) => {
                         }}
                         tickLine={false}
                         axisLine={false}
-                        tickMargin={5}
+                        tickMargin={10}
                     />
                     <YAxis
                         style={{
@@ -61,15 +71,21 @@ const Chart = ({ chartData }: PropType) => {
                         }}
                         tickLine={false}
                         axisLine={false}
-                        tickMargin={10}
+                        tickMargin={20}
                     />
-                    <Tooltip />
-                    {/* <CartesianGrid vertical={false} strokeDasharray="3" fill='white' /> */}
+                    <CartesianGrid vertical={false} strokeDasharray="3" fill="white" />
+                    <Tooltip content={<CustomizedToolTip />} cursor={{ fill: "transparent" }} />
                     <Bar
-                        dataKey="amount"
                         fill="#34CAA51A"
-                        activeBar={<CustomizedBar />}
-                        shape={<CustomizedBar />}
+                        activeBar={(props: any) => (
+                            <Rectangle
+                                {...props}
+                                radius={[20, 20, 0, 0]}
+                                className="fill-[#34CAA5]"
+                            />
+                        )}
+                        shape={(props: any) => <Rectangle {...props} radius={[20, 20, 0, 0]} />}
+                        dataKey="amount"
                     />
                 </BarChart>
             </ResponsiveContainer>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Wrapper from "./components/wrapper";
 import Header from "./components/header";
 import Chart from "./components/chart";
@@ -9,8 +10,17 @@ import Platform from "./components/platform";
 import { cardData, chartData, platformData, tableData } from "./utils/data";
 
 const Dashboard = () => {
+    const [data, setData] = useState(tableData);
+
     const onSearch = (value: string) => {
-        console.log(value);
+        if (value && value.trim() !== "") {
+            const filteredData = tableData.filter((item) => {
+                return item.name.toLowerCase().includes(value.toLowerCase());
+            });
+            setData(filteredData);
+        } else {
+            setData(tableData);
+        }
     };
 
     return (
@@ -24,7 +34,7 @@ const Dashboard = () => {
                     <Card cardData={cardData} />
                 </div>
                 <div className="col-span-4 md:col-span-6">
-                    <OrdersTable tableData={tableData} />
+                    <OrdersTable tableData={data} />
                 </div>
                 <div className="col-span-4">
                     <Platform platformData={platformData} />
