@@ -1,18 +1,41 @@
-import { ReactNode } from "react";
+"use client";
+
+import { ReactNode, useState, useEffect } from "react";
 import SideNav from "./side-nav";
 
-const Wrapper = ({ children }: { children: ReactNode }) => {
+interface WrapperPropsType {
+    showNav: boolean;
+    children: ReactNode;
+    setShowNav: (showNav: boolean) => void;
+}
+
+const Wrapper = ({ children, showNav, setShowNav }: WrapperPropsType) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth <= 768) {
+                setShowNav(false);
+                setIsMobile(true);
+            } else {
+                setIsMobile(false);
+            }
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
-        <div className="flex w-full h-full p-0 m-0 scroll-smooth">
-            <div className="h-full fixed px-0 mx-0">
-                <SideNav />
-            </div>
+        <div className="relative w-full h-full p-0 m-0 scroll-smooth overflow-hidden bg-grey min-h-screen">
+            {showNav && (
+                <div className="h-full w-full fixed px-0 mx-0 transition-all duration-700 ease-in-out z-50">
+                    <SideNav setShowNav={setShowNav} />
+                </div>
+            )}
             <div
-                className="grow min-h-max h-full left-[5rem] bg-grey"
-                style={{
-                    width: "calc(100vw - 5rem)",
-                    marginLeft: "5rem",
-                }}
+                className={`h-full bg-grey transition-all duration-700 ease-in-out ${
+                    showNav && !isMobile ? "ml-20" : "ml-0"
+                }`}
             >
                 {children}
             </div>

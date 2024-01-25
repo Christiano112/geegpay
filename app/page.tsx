@@ -11,6 +11,7 @@ import { cardData, chartData, platformData, tableData } from "./utils/data";
 
 const Dashboard = () => {
     const [data, setData] = useState(tableData);
+    const [showNav, setShowNav] = useState(true);
 
     const onSearch = (value: string) => {
         if (value && value.trim() !== "") {
@@ -24,8 +25,8 @@ const Dashboard = () => {
     };
 
     return (
-        <Wrapper>
-            <Header onSearch={onSearch} />
+        <Wrapper setShowNav={setShowNav} showNav={showNav}>
+            <Header onSearch={onSearch} showNav={showNav} setShowNav={setShowNav} />
             <div className="grid grid-cols-4 md:grid-cols-10 justify-between gap-4 px-2 py-4 h-full w-full">
                 <div className="col-span-4 md:col-span-6">
                     <Chart chartData={chartData} />

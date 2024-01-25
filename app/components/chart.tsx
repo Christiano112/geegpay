@@ -43,8 +43,8 @@ const Chart = ({ chartData }: PropType) => {
                     data={chartData}
                     margin={{
                         top: 5,
-                        right: 30,
-                        left: 20,
+                        right: 20,
+                        left: 10,
                         bottom: 5,
                     }}
                     barSize={20}

@@ -3,7 +3,11 @@ import Link from "next/link";
 import { linkData } from "../utils/data";
 import { BrightnessImage, Logo, MoonIcon, VectorIcon } from "../utils/images";
 
-const SideNav = () => {
+interface SideNavPropsType {
+    setShowNav: (showNav: boolean) => void;
+}
+
+const SideNav = ({ setShowNav }: SideNavPropsType) => {
     const dashboardLink = linkData[0];
     const upperLinks = linkData.slice(1, 6);
     const lowerLinks = linkData.slice(6);
@@ -18,7 +22,7 @@ const SideNav = () => {
                 <Link href="#" className="ml-3">
                     <Image src={dashboardLink.imgSrc} alt={dashboardLink.title} />
                 </Link>
-                <button className="">
+                <button onClick={() => setShowNav(false)}>
                     <Image src={VectorIcon} alt="toggle side nav" />
                 </button>
             </div>

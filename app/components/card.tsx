@@ -20,15 +20,19 @@ interface CardProps {
 
 const Card = ({ cardData }: CardProps) => {
     return (
-        <section className="w-full h-full grid gap-3 grid-cols-1 md:grid-cols-2 items-center justify-between">
+        <section className="w-full h-full grid gap-3 grid-cols-1 sm:grid-cols-2 items-center place-items-center justify-between">
             {cardData?.map((data) => (
                 <div
                     key={data.id}
-                    className="bg-white rounded-xl p-4 border border-grey4 max-w-[17rem] max-h-[13rem] h-full w-full text-balance"
+                    className="bg-white rounded-xl px-4 py-4 border border-grey4 max-h-[14rem] h-full w-full text-balance"
                 >
                     <div className="flex items-center gap-4 justify-between mb-[.625rem]">
                         <div className="border border-light-ash2 p-2 rounded-full grid place-items-center">
-                            <Image src={data.imgSrc} alt={data.title} />
+                            <Image
+                                src={data.imgSrc}
+                                alt={data.title}
+                                className="object-cover min-w-2 min-h-2"
+                            />
                         </div>
                         {data.trend === "up" ? (
                             <Image src={GreenWavesImage} alt="Trend Up" />
@@ -40,7 +44,7 @@ const Card = ({ cardData }: CardProps) => {
                     <p className="text-tertiary font-semibold text-2xl">{data.amount}</p>
                     <div className="flex items-center gap-4 justify-between mt-[.625rem]">
                         <div
-                            className="flex items-center justify-center gap-2 rounded-2xl text-pretty h-6 w-[4.75rem]"
+                            className="flex items-center justify-center gap-2 rounded-2xl text-pretty h-6 min-w-[4.75rem]"
                             style={{
                                 color: data.trend === "up" ? "#34CAA5" : "#ED544E",
                                 backgroundColor: data.trend === "up" ? "#34CAA51F" : "#ED544E1F",
