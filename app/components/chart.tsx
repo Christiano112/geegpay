@@ -26,6 +26,7 @@ type PropType = {
 
 const Chart = ({ chartData, weeklyChartData, yearlyChartData }: PropType) => {
     const [data, setData] = useState(chartData);
+    const [maxHeight, setMaxHeight] = useState(675);
     const [graphData, setGraphData] = useState({ x: 0, y: 0, width: 0 });
     const [toolTipWidth, setToolTipWidth] = useState(0);
 
@@ -33,11 +34,21 @@ const Chart = ({ chartData, weeklyChartData, yearlyChartData }: PropType) => {
         setGraphData(data);
     }, []);
 
+    const handleResize = useCallback(() => {
+        if (window.innerWidth < 767) {
+            setMaxHeight(275);
+        } else if (window.innerWidth < 1024) {
+            setMaxHeight(675);
+        } else {
+            setMaxHeight(285);
+        }
+    }, []);
+
     return (
         <section className="p-4 bg-white border border-grey4 rounded-xl h-full w-full min-w-max">
             <div className="flex items-center gap-4 justify-between mb-6">
                 <h3 className="text-dark font-semibold text-lg">Sales Trend</h3>
-                <div className="text-tertiary flex items-center gap-2">
+                <div className="text-tertiary flex items-center gap-1">
                     <span className="text-sm">Sort by :</span>
                     <select
                         name="sort"
@@ -60,7 +71,13 @@ const Chart = ({ chartData, weeklyChartData, yearlyChartData }: PropType) => {
                 </div>
             </div>
 
-            <ResponsiveContainer width="100%" height="100%" minHeight={240} maxHeight={275}>
+            <ResponsiveContainer
+                width="100%"
+                height="100%"
+                minHeight={240}
+                maxHeight={maxHeight}
+                onResize={handleResize}
+            >
                 <BarChart
                     data={data}
                     margin={{

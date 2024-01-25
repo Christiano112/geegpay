@@ -16,12 +16,18 @@ const Header = memo(({ onSearch, showNav, setShowNav }: PropType) => {
             <div className="mr-auto w-full flex items-center gap-2">
                 {!showNav && (
                     <button onClick={() => setShowNav(true)}>
-                        <Image src={CategoryImage} alt="Side Nav Toggle" />
+                        <Image
+                            src={CategoryImage}
+                            alt="Side Nav Toggle"
+                            className="min-w-4 min-h-4"
+                        />
                     </button>
                 )}
                 <h1 className="font-semibold text-xl text-dark">Dashboard</h1>
             </div>
-            <div className={`${inter.className} flex items-center gap-4 text-dark w-full grow`}>
+            <div
+                className={`${inter.className} flex items-center gap-4 text-dark w-full grow justify-end`}
+            >
                 <SearchInput onSearch={onSearch} />
 
                 <div className="hidden md:flex items-center gap-2 mr-2">

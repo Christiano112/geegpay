@@ -20,7 +20,7 @@ interface CardProps {
 
 const Card = ({ cardData }: CardProps) => {
     return (
-        <section className="w-full h-full grid gap-3 grid-cols-1 md:grid-cols-2 items-center place-items-center justify-between">
+        <section className="w-full h-full grid gap-3 grid-cols-1 lg:grid-cols-2 items-center place-items-center justify-between">
             {cardData?.map((data) => (
                 <div
                     key={data.id}

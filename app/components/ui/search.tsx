@@ -24,7 +24,7 @@ const SearchInput = memo(({ onSearch }: SearchInputType) => {
     };
 
     return (
-        <div className="relative h-full max-w-[21rem] min-w-[8rem]">
+        <div className="relative h-full max-w-[21rem] min-w-[8rem] 2xs:min-w-[10rem]">
             <input
                 type="search"
                 id="search"
