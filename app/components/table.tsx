@@ -1,7 +1,7 @@
 import Image from "next/image";
+import { useState } from "react";
 import type { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { DocumentDownloadIcon } from "../utils/images";
-import Headline from "./ui/headline";
 
 export interface TablePropType {
     tableData: {
@@ -15,9 +15,23 @@ export interface TablePropType {
 }
 
 const OrdersTable = ({ tableData }: TablePropType) => {
+    const [isAll, setIsAll] = useState(false);
+    const [orders, setOrders] = useState(tableData.slice(0, 6));
+
     return (
         <section className="bg-white border border-grey4 rounded-xl p-4 h-full w-full grow">
-            <Headline text="Last Orders" />
+            <div className="flex items-center justify-between gap-8 text-lg">
+                <h3 className="text-dark font-semibold">Last Orders</h3>
+                <button
+                    className="text-primary font-medium cursor-pointer"
+                    onClick={() => {
+                        setIsAll(!isAll);
+                        setOrders(isAll ? tableData.slice(0, 6) : tableData);
+                    }}
+                >
+                    {!isAll ? "See All" : "See Less"}
+                </button>
+            </div>
 
             <div className="mt-6 w-full overflow-x-auto overscroll-x-auto scroll-smooth">
                 <table className=" min-w-full">
@@ -41,7 +55,7 @@ const OrdersTable = ({ tableData }: TablePropType) => {
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-grey3">
-                        {tableData.map((item) => (
+                        {orders?.map((item) => (
                             <tr key={item.id} className="text-tertiary">
                                 <td className="px-2 py-3 whitespace-nowrap min-w-[12rem]">
                                     <div className="flex items-center gap-2">

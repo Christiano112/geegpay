@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { memo } from "react";
 import { inter } from "../font";
@@ -14,7 +12,7 @@ type PropType = {
 
 const Header = memo(({ onSearch, showNav, setShowNav }: PropType) => {
     return (
-        <header className="bg-grey flex items-center gap-6 justify-between p-4 border-b border-b-[#EBECF2]">
+        <header className="bg-grey flex items-center gap-6 justify-between p-4 border-b border-b-grey2">
             <div className="mr-auto w-full flex items-center gap-2">
                 {!showNav && (
                     <button onClick={() => setShowNav(true)}>

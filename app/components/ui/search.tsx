@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { useState, useEffect, ChangeEvent, memo } from "react";
 import { SearchIcon } from "@/app/utils/images";
@@ -19,14 +17,14 @@ const SearchInput = memo(({ onSearch }: SearchInputType) => {
         };
 
         handleSearch();
-    }, [debouncedSearchQuery]);
+    }, [debouncedSearchQuery, onSearch]);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
     };
 
     return (
-        <div className="relative h-full max-w-[21rem]">
+        <div className="relative h-full max-w-[21rem] min-w-[8rem]">
             <input
                 type="search"
                 id="search"

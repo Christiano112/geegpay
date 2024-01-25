@@ -10,16 +10,23 @@ import {
     ResponsiveContainer,
     Rectangle,
 } from "recharts";
-import CustomizedToolTip from "./ui/customizedTooltip";
+import { useState } from "react";
+import CustomizedToolTip from "./ui/customToolTip";
+
+interface DataType {
+    name: string;
+    amount: number;
+}
 
 type PropType = {
-    chartData: {
-        name: string;
-        amount: number;
-    }[];
+    chartData: DataType[];
+    weeklyChartData: DataType[];
+    yearlyChartData: DataType[];
 };
 
-const Chart = ({ chartData }: PropType) => {
+const Chart = ({ chartData, weeklyChartData, yearlyChartData }: PropType) => {
+    const [data, setData] = useState(chartData);
+
     return (
         <section className="p-4 bg-white border border-grey4 rounded-xl h-full w-full min-w-max">
             <div className="flex items-center gap-4 justify-between mb-6">
@@ -30,6 +37,15 @@ const Chart = ({ chartData }: PropType) => {
                         name="sort"
                         id="sort"
                         className="border border-grey5 px-2 py-1 text-xs rounded-3xl"
+                        onChange={(e) => {
+                            if (e.target.value === "weekly") {
+                                setData(weeklyChartData);
+                            } else if (e.target.value === "monthly") {
+                                setData(chartData);
+                            } else if (e.target.value === "yearly") {
+                                setData(yearlyChartData);
+                            }
+                        }}
                     >
                         <option value="weekly">Weekly</option>
                         <option value="monthly">Monthly</option>
@@ -40,7 +56,7 @@ const Chart = ({ chartData }: PropType) => {
 
             <ResponsiveContainer width="100%" height="100%" minHeight={240} maxHeight={275}>
                 <BarChart
-                    data={chartData}
+                    data={data}
                     margin={{
                         top: 5,
                         right: 20,

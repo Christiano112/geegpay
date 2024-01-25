@@ -68,6 +68,21 @@ export const linkData = [
     },
 ];
 
+export const weeklyChartData = [
+    { name: "Week 1", amount: 1200 },
+    { name: "Week 2", amount: 1800 },
+    { name: "Week 3", amount: 2500 },
+    { name: "Week 4", amount: 3000 },
+    { name: "Week 5", amount: 2800 },
+    { name: "Week 6", amount: 3500 },
+    { name: "Week 7", amount: 4000 },
+    { name: "Week 8", amount: 4500 },
+    { name: "Week 9", amount: 5000 },
+    { name: "Week 10", amount: 5500 },
+    { name: "Week 11", amount: 6000 },
+    { name: "Week 12", amount: 6500 },
+];
+
 export const chartData = [
     { name: "Jan", amount: 6000 },
     { name: "Feb", amount: 17000 },
@@ -81,6 +96,21 @@ export const chartData = [
     { name: "Oct", amount: 4000 },
     { name: "Nov", amount: 25000 },
     { name: "Dec", amount: 21000 },
+];
+
+export const yearlyChartData = [
+    { name: "Year 1", amount: 6000 },
+    { name: "Year 2", amount: 9000 },
+    { name: "Year 3", amount: 12000 },
+    { name: "Year 4", amount: 15000 },
+    { name: "Year 5", amount: 18000 },
+    { name: "Year 6", amount: 21000 },
+    { name: "Year 7", amount: 24000 },
+    { name: "Year 8", amount: 27000 },
+    { name: "Year 9", amount: 30000 },
+    { name: "Year 10", amount: 33000 },
+    { name: "Year 11", amount: 36000 },
+    { name: "Year 12", amount: 39000 },
 ];
 
 export const tableData: TablePropType["tableData"] = [
@@ -132,6 +162,54 @@ export const tableData: TablePropType["tableData"] = [
         amount: "$75,000",
         status: "Refund",
     },
+    {
+        id: 7,
+        name: "Emily Smith",
+        imgSrc: LadyImage,
+        date: "Nov 19, 2023",
+        amount: "$120,000",
+        status: "Paid",
+    },
+    {
+        id: 8,
+        name: "Ethan Hunt",
+        imgSrc: GuyImage,
+        date: "Nov 20, 2023",
+        amount: "$90,000",
+        status: "Paid",
+    },
+    {
+        id: 9,
+        name: "Liam Johnson",
+        imgSrc: Guy2Image,
+        date: "Nov 21, 2023",
+        amount: "$110,000",
+        status: "Refund",
+    },
+    {
+        id: 10,
+        name: "Olivia Davis",
+        imgSrc: GirlImage,
+        date: "Nov 22, 2023",
+        amount: "$95,000",
+        status: "Paid",
+    },
+    {
+        id: 11,
+        name: "Sophia Clark",
+        imgSrc: Girl2Image,
+        date: "Nov 23, 2023",
+        amount: "$130,000",
+        status: "Paid",
+    },
+    {
+        id: 12,
+        name: "Noah Thompson",
+        imgSrc: GuyImage,
+        date: "Nov 24, 2023",
+        amount: "$85,000",
+        status: "Paid",
+    },
 ];
 
 export const platformData = [
@@ -151,7 +229,7 @@ export const platformData = [
     },
     {
         id: 3,
-        name: "Artisan Aisle",
+        name: "Crafts Corner",
         percent: 8,
         amount: 1200000,
         color: "#FFB74A",
@@ -162,6 +240,34 @@ export const platformData = [
         percent: 5,
         amount: 700000,
         color: "#34CAA5",
+    },
+    {
+        id: 5,
+        name: "Tech Treasures",
+        percent: 12,
+        amount: 2100000,
+        color: "#FF5252",
+    },
+    {
+        id: 6,
+        name: "Gourmet Goods",
+        percent: 18,
+        amount: 3200000,
+        color: "#6EC177",
+    },
+    {
+        id: 7,
+        name: "Fashion Finds",
+        percent: 7,
+        amount: 950000,
+        color: "#F7931E",
+    },
+    {
+        id: 8,
+        name: "Home Hub",
+        percent: 14,
+        amount: 2000000,
+        color: "#9C27B0",
     },
 ];
 

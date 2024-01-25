@@ -13,7 +13,7 @@ const SideNav = ({ setShowNav }: SideNavPropsType) => {
     const lowerLinks = linkData.slice(6);
 
     return (
-        <nav className="max-w-[5rem] py-4 pl-4 bg-gray2 relative h-full z-50 transition-all duration-150 ease-out md:ease-in border-r border-r-[#EBECF2]">
+        <nav className="max-w-[5rem] py-4 pl-4 bg-gray2 relative h-full z-50 transition-all duration-700 ease-out md:ease-in border-r border-r-grey2">
             <div className="pr-4 mb-12 grid place-items-center">
                 <Image src={Logo} alt="Logo" />
             </div>
@@ -50,7 +50,7 @@ const SideNav = ({ setShowNav }: SideNavPropsType) => {
                 </li>
             </ul>
 
-            <ul className="mr-4 flex flex-col items-center gap-4 self-stretch mt-auto">
+            <ul className="mr-4 flex flex-col items-center gap-4 self-stretch mt-auto absolute bottom-5 left-7">
                 {lowerLinks.map((item) => (
                     <li key={item.id}>
                         <Link href="#">
