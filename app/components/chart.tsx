@@ -10,7 +10,7 @@ import {
     ResponsiveContainer,
     Rectangle,
 } from "recharts";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import CustomizedToolTip from "./ui/customToolTip";
 
 interface DataType {
@@ -26,6 +26,12 @@ type PropType = {
 
 const Chart = ({ chartData, weeklyChartData, yearlyChartData }: PropType) => {
     const [data, setData] = useState(chartData);
+    const [graphData, setGraphData] = useState({ x: 0, y: 0, width: 0 });
+    const [toolTipWidth, setToolTipWidth] = useState(0);
+
+    const handleMouseMove = useCallback((data: any) => {
+        setGraphData(data);
+    }, []);
 
     return (
         <section className="p-4 bg-white border border-grey4 rounded-xl h-full w-full min-w-max">
@@ -90,8 +96,13 @@ const Chart = ({ chartData, weeklyChartData, yearlyChartData }: PropType) => {
                         tickMargin={20}
                     />
                     <CartesianGrid vertical={false} strokeDasharray="3" fill="white" />
-                    <Tooltip content={<CustomizedToolTip />} cursor={{ fill: "transparent" }} />
+                    <Tooltip
+                        content={<CustomizedToolTip setToolTipWidth={setToolTipWidth} />}
+                        cursor={{ fill: "transparent" }}
+                        position={{ x: graphData.x - toolTipWidth / 2.75, y: graphData.y - 40 }}
+                    />
                     <Bar
+                        dataKey="amount"
                         fill="#34CAA51A"
                         activeBar={(props: any) => (
                             <Rectangle
@@ -101,7 +112,8 @@ const Chart = ({ chartData, weeklyChartData, yearlyChartData }: PropType) => {
                             />
                         )}
                         shape={(props: any) => <Rectangle {...props} radius={[20, 20, 0, 0]} />}
-                        dataKey="amount"
+                        onMouseEnter={handleMouseMove}
+                        onMouseLeave={handleMouseMove}
                     />
                 </BarChart>
             </ResponsiveContainer>

@@ -16,6 +16,8 @@ export interface TablePropType {
 
 const OrdersTable = ({ tableData }: TablePropType) => {
     const [isAll, setIsAll] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [order, setOrder] = useState({} as TablePropType["tableData"][0]);
     const [orders, setOrders] = useState(tableData.slice(0, 6));
 
     return (
@@ -82,7 +84,13 @@ const OrdersTable = ({ tableData }: TablePropType) => {
                                     {item.status}
                                 </td>
                                 <td className="px-2 py-3 whitespace-nowrap">
-                                    <button className="text-secondary text-sm flex items-center gap-1">
+                                    <button
+                                        className="text-secondary text-sm flex items-center gap-1"
+                                        onClick={() => {
+                                            setOrder(item);
+                                            setShowModal(true);
+                                        }}
+                                    >
                                         <Image src={DocumentDownloadIcon} alt="Download" />
                                         View
                                     </button>
@@ -92,6 +100,71 @@ const OrdersTable = ({ tableData }: TablePropType) => {
                     </tbody>
                 </table>
             </div>
+
+            {showModal && order && (
+                <div className="fixed left-0 right-0 top-0 bottom-0 bg-[#0000004D] z-50 flex justify-center items-center">
+                    <div className="bg-white rounded-lg p-4 w-full m-4 relative max-w-lg mx-auto">
+                        <button
+                            className="absolute top-2 right-2"
+                            onClick={() => {
+                                setShowModal(false);
+                                setOrder({} as TablePropType["tableData"][0]);
+                            }}
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="#3C1263"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+
+                        <div className="flex flex-col items-center gap-6 justify-center">
+                            <h3 className="text-dark font-semibold self-start">Order Details</h3>
+                            <div className="flex flex-col gap-2">
+                                <Image
+                                    src={order.imgSrc}
+                                    alt={order.name}
+                                    className="w-20 h-20 object-contain mx-auto"
+                                />
+                                <p className="inline-flex items-center gap-2 justify-between mt-2">
+                                    <span className="w-16">Name: </span>{" "}
+                                    <span className="mr-auto font-semibold">{order.name}</span>
+                                </p>
+                                <p className="inline-flex items-center gap-2 justify-between">
+                                    <span className="w-16">Date:</span>{" "}
+                                    <span className="mr-auto text-dark-ash">{order.date}</span>
+                                </p>
+                                <p className="inline-flex items-center gap-2 justify-between">
+                                    <span className="w-16">Amount:</span>{" "}
+                                    <span className="mr-auto font-medium text-secondary">
+                                        {order.amount}
+                                    </span>
+                                </p>
+                                <p className="inline-flex items-center gap-2 justify-between">
+                                    <span className="w-16">Status:</span>{" "}
+                                    <span
+                                        className="mr-auto text-sm"
+                                        style={{
+                                            color: order.status === "Paid" ? "#34CAA5" : "#ED544E",
+                                        }}
+                                    >
+                                        {order.status}
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     );
 };
