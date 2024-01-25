@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Analytical Dashboard
+
+## Overview
+
+The Analytical Dashboard is a web application designed as a coding challenge to create a powerful and visually appealing analytical dashboard. The dashboard provides insights into various data sets, helping users make informed decisions based on data analysis.
+
+## Features
+
+- **Responsive Design:** The dashboard is built with responsiveness in mind, ensuring a seamless user experience across various devices.
+
+- **Data Visualization:** Leveraging the Recharts library, the dashboard presents data in a visually compelling manner through charts and graphs, enhancing data interpretation.
+
+- **Top Platforms Section:** The dashboard includes a section highlighting the top-performing platforms, displaying key metrics such as percentage and total amount.
+
+- **Search Functionality:** Users can efficiently search and filter data, improving the accessibility and usability of the dashboard.
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/): A React framework for building server-rendered applications.
+
+- [React](https://reactjs.org/): A JavaScript library for building user interfaces.
+
+- [Recharts](https://recharts.org/): A charting library for React applications.
+
+- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for rapidly building custom designs.
+
+- [TypeScript](https://www.typescriptlang.org/): A superset of JavaScript that adds static typing.
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   ```bash
+   git clone https://github.com/Christiano112/geegpay.git
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   cd geegpay
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Run the development server:
 
-## Learn More
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+   Open [http://localhost:3000](http://localhost:3000) to view the dashboard in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **dev:** Run the development server.
+- **build:** Build the production application.
+- **start:** Start the production server.
+- **lint:** Run ESLint for code linting.
+- **format:** Format code using Prettier.
 
-## Deploy on Vercel
+## Dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Next.js:** The main framework for building the application.
+- **React and React DOM:** The core libraries for building user interfaces with React.
+- **Recharts:** A charting library for React.
+- **Sharp:** A high-performance image processing library.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## DevDependencies
+
+- **TypeScript:** A statically typed superset of JavaScript.
+- **ESLint:** A tool for identifying and fixing problems in JavaScript code.
+- **Prettier:** A code formatter.
+- **Tailwind CSS:** A utility-first CSS framework.
+- **PostCSS and Autoprefixer:** Tools for processing and optimizing CSS code.
+
+### THANK YOU
