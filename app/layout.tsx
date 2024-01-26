@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { plus_jakarta_sans } from "./font";
 
@@ -14,7 +15,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={plus_jakarta_sans.className}>{children}</body>
+            <body className={plus_jakarta_sans.className}>
+                {children}
+                <Analytics />
+            </body>
         </html>
     );
 }
