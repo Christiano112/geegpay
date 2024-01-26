@@ -47,9 +47,9 @@ const Chart = ({ chartData, weeklyChartData, yearlyChartData }: PropType) => {
     return (
         <section className="p-4 bg-white border border-grey4 rounded-xl h-full w-full min-w-max">
             <div className="flex items-center gap-4 justify-between mb-6">
-                <h3 className="text-dark font-semibold text-lg">Sales Trend</h3>
+                <h2 className="text-dark font-semibold text-lg">Sales Trend</h2>
                 <div className="text-tertiary flex items-center gap-1">
-                    <span className="text-sm">Sort by :</span>
+                    <label htmlFor="sort" className="text-sm">Sort by :</label>
                     <select
                         name="sort"
                         id="sort"

@@ -132,7 +132,7 @@ const OrdersTable = ({ tableData }: TablePropType) => {
                             <div className="flex flex-col gap-2">
                                 <Image
                                     src={order.imgSrc}
-                                    alt={order.name}
+                                    alt="pic of"
                                     className="w-20 h-20 object-contain mx-auto"
                                 />
                                 <p className="inline-flex items-center gap-2 justify-between mt-2">
