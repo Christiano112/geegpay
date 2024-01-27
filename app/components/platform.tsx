@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { platformData } from "../utils/data";
 
 interface PlatformPropTye {
     platformData: {
@@ -34,7 +33,7 @@ const Platform = ({ platformData }: PlatformPropTye) => {
                 {platforms?.map((platform) => (
                     <div key={platform.id}>
                         <p className="text-dark2 font-semibold">{platform.name}</p>
-                        <div className="h-2 w-full bg-gray rounded-b-lg my-2">
+                        <div className="h-2 w-full bg-gray rounded-lg my-2">
                             <div
                                 className="h-2 rounded-lg"
                                 style={{

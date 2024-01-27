@@ -99,18 +99,18 @@ export const chartData = [
 ];
 
 export const yearlyChartData = [
-    { name: "Year 1", amount: 6000 },
-    { name: "Year 2", amount: 9000 },
-    { name: "Year 3", amount: 12000 },
-    { name: "Year 4", amount: 15000 },
-    { name: "Year 5", amount: 18000 },
-    { name: "Year 6", amount: 21000 },
-    { name: "Year 7", amount: 24000 },
-    { name: "Year 8", amount: 27000 },
-    { name: "Year 9", amount: 30000 },
-    { name: "Year 10", amount: 33000 },
-    { name: "Year 11", amount: 36000 },
-    { name: "Year 12", amount: 39000 },
+    { name: "2015", amount: 6000 },
+    { name: "2016", amount: 9000 },
+    { name: "2017", amount: 12000 },
+    { name: "2018", amount: 15000 },
+    { name: "2019", amount: 18000 },
+    { name: "2020", amount: 21000 },
+    { name: "2021", amount: 24000 },
+    { name: "2022", amount: 27000 },
+    { name: "2023", amount: 30000 },
+    { name: "2024", amount: 33000 },
+    { name: "2025", amount: 36000 },
+    { name: "2026", amount: 39000 },
 ];
 
 export const tableData: TablePropType["tableData"] = [

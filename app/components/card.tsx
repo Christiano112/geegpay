@@ -57,7 +57,7 @@ const Card = ({ cardData }: CardProps) => {
                             )}
                             <span className="font-medium text-xs">23.5%</span>
                         </div>
-                        <span className={`${inter.className} text-xs text-light-ash`}>
+                        <span className={`${inter.className} text-sm sm:text-xs text-light-ash`}>
                             vs. previous month
                         </span>
                     </div>

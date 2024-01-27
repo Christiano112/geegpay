@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { DocumentDownloadIcon } from "../utils/images";
 
@@ -17,8 +17,12 @@ export interface TablePropType {
 const OrdersTable = ({ tableData }: TablePropType) => {
     const [isAll, setIsAll] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [orders, setOrders] = useState(tableData?.slice(0, 6));
     const [order, setOrder] = useState({} as TablePropType["tableData"][0]);
-    const [orders, setOrders] = useState(tableData.slice(0, 6));
+
+    useEffect(() => {
+        setOrders(tableData?.slice(0, 6));
+    }, [tableData]);
 
     return (
         <section className="bg-white border border-grey4 rounded-xl p-4 h-full w-full grow">
@@ -28,7 +32,7 @@ const OrdersTable = ({ tableData }: TablePropType) => {
                     className="text-primary font-medium cursor-pointer"
                     onClick={() => {
                         setIsAll(!isAll);
-                        setOrders(isAll ? tableData.slice(0, 6) : tableData);
+                        setOrders(isAll ? tableData?.slice(0, 6) : tableData);
                     }}
                 >
                     {!isAll ? "See All" : "See Less"}
@@ -128,7 +132,14 @@ const OrdersTable = ({ tableData }: TablePropType) => {
                         </button>
 
                         <div className="flex flex-col items-center gap-6 justify-center">
-                            <h3 className="text-dark font-semibold self-start">Order Details</h3>
+                            <h3
+                                className="font-bold self-start text-xl"
+                                style={{
+                                    color: order.status === "Paid" ? "#34CAA5" : "#ED544E",
+                                }}
+                            >
+                                Order Details
+                            </h3>
                             <div className="flex flex-col gap-2">
                                 <Image
                                     src={order.imgSrc}

@@ -28,7 +28,7 @@ const Dashboard = () => {
 
     const onSearch = useCallback(
         (value: string) => {
-            if (value && value.trim() !== "" && tableData.length > 0) {
+            if (value && value.trim() !== "" && tableData?.length > 0) {
                 const filteredData = tableData?.filter((item) => {
                     return item.name.toLowerCase().includes(value.toLowerCase());
                 });

@@ -49,11 +49,14 @@ const Chart = ({ chartData, weeklyChartData, yearlyChartData }: PropType) => {
             <div className="flex items-center gap-4 justify-between mb-6">
                 <h2 className="text-dark font-semibold text-lg">Sales Trend</h2>
                 <div className="text-tertiary flex items-center gap-1">
-                    <label htmlFor="sort" className="text-sm">Sort by :</label>
+                    <label htmlFor="sort" className="text-sm">
+                        Sort by :
+                    </label>
                     <select
                         name="sort"
                         id="sort"
                         className="border border-grey5 px-2 py-1 text-xs rounded-3xl"
+                        defaultValue="monthly"
                         onChange={(e) => {
                             if (e.target.value === "weekly") {
                                 setData(weeklyChartData);
